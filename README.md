@@ -10,11 +10,11 @@ transaction request library for zarinpal
 this package is going to work with all kinds of projects, but for laravel i add provider to make it as easy as possible.
 just add these two line of declaration to config/app.php:
 ```php
-'providers' => [
-    ...
-    Zarinpal\Laravel\ZarinpalServiceProvider::class
-    ...
-];
+	'providers' => [
+	    ...
+	    Zarinpal\Laravel\ZarinpalServiceProvider::class
+	    ...
+	];
     'aliases' => [
 		...
         'Zarinpal' => Zarinpal\Laravel\Facade\Zarinpal::class,
