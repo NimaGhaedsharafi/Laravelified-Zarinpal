@@ -129,7 +129,7 @@ class RestDriver implements DriverInterface
     {
         try {
             $client = new Client(['base_uri' => $this->baseUrl]);
-            $response = $client->request('POST', $uri, ['json' => $data]);
+            $response = $client->post($uri, ['json' => $data]);
 
             $rawBody = $response->getBody()->getContents();
             $body = json_decode($rawBody, true);
