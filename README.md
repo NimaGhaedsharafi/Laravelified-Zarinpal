@@ -30,12 +30,12 @@ Zarinpal::verify('OK',1000,$answer['Authority']);
 
 ##usage
 ###installation 
-``composer require zarinpal/zarinpal``
+``composer require laravelified-zarinpal/zarinpal``
 or
 ```json
 "require": {
     ...
-    "zarinpal/zarinpal" : "1.*",
+    "zarinpal/zarinpal" : "^2",
     ...
 },
 ```
