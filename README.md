@@ -8,20 +8,25 @@ transaction request library for zarinpal
 
 ##laravel ready
 this package is going to work with all kinds of projects, but for laravel i add provider to make it as easy as possible.
-just add :
+just add these two line of declaration to config/app.php:
 ```php
-'providers' => array(
+'providers' => [
     ...
     Zarinpal\Laravel\ZarinpalServiceProvider::class
     ...
-)
+];
+    'aliases' => [
+		...
+        'Zarinpal' => Zarinpal\Laravel\Facade\Zarinpal::class,
+    ];
+
 ``` 
 to providers list in "config/app.php". and run
 '`php artisan vendor:publish --provider="Zarinpal\Laravel\ZarinpalServiceProvider"`'
 to add config file to laravel configs directory config it and you are good to go
 now you can access the zarinpal lib like this:
 ```php
-use Zarinpal\Laravel\Facade\Zarinpal;
+use Zarinpal;
 
 Zarinpal::request("example.com/testVerify.php",1000,'testing');
 Zarinpal::verify('OK',1000,$answer['Authority']);
@@ -35,14 +40,14 @@ or
 ```json
 "require": {
     ...
-    "zarinpal/zarinpal" : "^2",
+    "laravelified-zarinpal//zarinpal" : "^2",
     ...
 },
 ```
 
 ###request
 ```php
-use Zarinpal\Zarinpal;
+use Zarinpal;
 
 $test = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
 echo json_encode($answer = $test->request("example.com/testVerify.php",1000,'testing'));
@@ -56,7 +61,7 @@ if(isset($answer['Authority'])) {
 
 ###verify
 ```php
-use Zarinpal\Zarinpal;
+use Zarinpal;
 
 $test = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
 $answer['Authority'] = file_get_contents('Authority');
